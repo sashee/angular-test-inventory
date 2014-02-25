@@ -1,5 +1,8 @@
+'use strict'
+
 var express = require('express');
 var _ = require('underscore');
+var fs = require('fs');
 var app = express();
 
 app.use(express.bodyParser());
@@ -59,28 +62,28 @@ app.post('/rest/resetdb',function(req,res){
 resetDb();
 
 
-app.get('/rest/places', function(req, res){
+app.get('/rest/place', function(req, res){
     res.send(places)
 });
 
-app.get('/rest/stuffs', function(req, res){
+app.get('/rest/stuff', function(req, res){
     res.send(stuffs)
 });
 
-app.get('/rest/stuffs_for_place/:placeid', function(req, res){
+app.get('/rest/stuff/for_place/:placeid', function(req, res){
     res.send(_.filter(stuffs,function(stuff){
         return stuff.at && stuff.at===req.params.placeid;
     }))
 });
 
-app.put('/rest/stuff',function(req,res){
+app.post('/rest/stuff/new',function(req,res){
     req.body.history=[{date:new Date(),at:req.body.at}];
     req.body.id= parseInt(_.max(_.pluck(stuffs,'id')))+1;
     stuffs= _.union(stuffs,[req.body]);
     res.send(200);
 });
 
-app.put('/rest/place',function(req,res){
+app.post('/rest/place/new',function(req,res){
     req.body.id= parseInt(_.max(_.pluck(places,'id')))+1;
     places= _.union(places,[req.body]);
     res.send(200);
@@ -105,9 +108,19 @@ app.post('/rest/place',function(req,res){
     res.send(200)
 });
 
-app.post('/rest/file',function(req,res){
-    console.log(req.files.img.path)
-    res.send(200);
-})
+app.post('/rest/stuff/:stuffid/image',function(req,res){
+    var existing=_.find(stuffs,function(stuff){return stuff.id===req.params.stuffid});
+    var imgs=existing.images||[];
+    imgs.push(req.files.img.path);
+    existing.images=imgs;
+    res.send(200)
+});
+
+app.get('/rest/stuff/:stuffid/image/:imagenum',function(req,res){
+    var existing=_.find(stuffs,function(stuff){return stuff.id===req.params.stuffid});
+    fs.readFile(existing.images[req.params.imagenum], "binary", function(error, file) {
+        res.writeHead(200, {"Content-Type": "image/png"});
+        res.write(file, "binary");
+})});
 
 app.listen(3000);
