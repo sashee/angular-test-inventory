@@ -6,7 +6,6 @@ var fs = require('fs');
 var app = express();
 
 app.use(express.bodyParser());
-//app.use(express.json());
 app.use(express.urlencoded());
 
 var places;

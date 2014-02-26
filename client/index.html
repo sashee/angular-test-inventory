@@ -1,5 +1,19 @@
-<html>
+<html ng-app="inventoryApp">
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+	<script src="app.js"></script>
+	<script src="controllers/dashboard.js"></script>
+	<script src="controllers/history.js"></script>
+	<script src="controllers/places.js"></script>
+	<script src="controllers/stuff_edit.js"></script>
+	<script src="controllers/stuffs.js"></script>
+</head>
 <body>
-HALI!
+<div ng-view>
+</div>
+
+
 </body>
 </html>

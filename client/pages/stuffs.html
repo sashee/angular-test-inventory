@@ -1,0 +1,5 @@
+<div ng-repeat="stuff in stuffs">
+	{{stuff.name}}
+	<button ng-click="go('/stuff_edit',{'stuffId':stuff.id})">Edit</button>
+	<div ng-show="stuff.at">at: {{findPlaceById(stuff.at).name}}</div>
+</div>

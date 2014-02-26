@@ -1,0 +1,16 @@
+Places
+<button ng-click="go('places')">Organize</button>
+
+<div ng-repeat="place in places">
+	{{place.name}}
+	<div ng-repeat="stuff in stuffForPlaces(place)">
+		{{stuff.name}}
+	</div>
+</div>
+
+Stuffs
+<button ng-click="go('stuffs')">Organize</button>
+
+<div ng-repeat="stuff in stuffs">
+	{{stuff.name}}
+</div>

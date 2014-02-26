@@ -1,0 +1,20 @@
+<div ng-click="showCreate=true;selectPlace(null)">NEW</div>
+<div ng-show="showCreate">
+	<form name="form" novalidate>
+		Name:<input type="text" ng-model="name" required>
+		Description:<input type="text" ng-model="description" required>
+		<button ng-click="create()" ng-disabled="form.$invalid">SAVE</button>
+		<button ng-click="name='';description='';showCreate=false">CANCEL</button>
+	</form>
+</div>
+
+<div ng-repeat="place in places">
+	<div ng-click="selectPlace(place.id)">{{place.name}}</div>
+	<div ng-show="place.id === selectedPlaceId">
+		<form name="form" novalidate>
+			Name:<input type="text" ng-model="getEditPlace(place).name" required>
+			Description:<input type="text" ng-model="getEditPlace(place).description" required>
+			<button ng-click="savePlace(getEditPlace(place))" ng-disabled="form.$invalid || isUnchanged(place)">SAVE</button>
+		</form>
+	</div>
+</div>
