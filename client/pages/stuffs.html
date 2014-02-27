@@ -1,5 +1,35 @@
-<div ng-repeat="stuff in stuffs">
-	{{stuff.name}}
-	<button ng-click="go('/stuff_edit',{'stuffId':stuff.id})">Edit</button>
-	<div ng-show="stuff.at">at: {{findPlaceById(stuff.at).name}}</div>
+<button ng-click="go('/')">Back</button>
+<div>
+	<div ng-repeat="stuff in stuffs">
+		{{stuff.name}}
+		<button ng-click="go('/stuff_edit',{'stuffId':stuff.id})">Edit</button>
+		at:
+		<div ng-show="showEdit!==stuff.id" ng-click="$parent.showEdit=stuff.id">
+			<div ng-show="findPlaceById(stuff.at)">
+				{{findPlaceById(stuff.at).name}}
+			</div>
+			<div ng-show="!findPlaceById(stuff.at)">
+				Nowhere
+			</div>
+
+		</div>
+		<div ng-show="showEdit==stuff.id">
+			<select ui-select2="{allowClear:true}" ng-model="findEditStuff(stuff.id).at" data-placeholder="At nowhere" class="autocomplete">
+				<option value=""></option>
+				<option ng-repeat="p in places" value="{{p.id}}">{{p.name}}</option>
+			</select>
+			<button ng-click="save(stuff.id)">OK</button>
+			<button ng-click="$parent.showEdit=null">Cancel</button>
+		</div>
+	</div>
+	<div>
+		<button ng-show="!showCreate" ng-click="showCreate=true">New</button>
+		<div ng-show="showCreate">
+			<form name="form" novalidate>
+				<input type="text" ng-model="name" required>
+				<button ng-disabled="form.$invalid" ng-click="create()">Save</button>
+				<button ng-click="showCreate=false;name=null">Cancel</button>
+			</form>
+		</div>
+	</div>
 </div>

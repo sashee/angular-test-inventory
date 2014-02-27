@@ -69,6 +69,12 @@ app.get('/rest/stuff', function(req, res){
     res.send(stuffs)
 });
 
+app.get('/rest/stuff/:id', function(req, res){
+    res.send(_.find(stuffs,function(stuff){
+        return stuff.id===req.params.id;
+    }));
+});
+
 app.get('/rest/stuff/for_place/:placeid', function(req, res){
     res.send(_.filter(stuffs,function(stuff){
         return stuff.at && stuff.at===req.params.placeid;

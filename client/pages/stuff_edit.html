@@ -1,1 +1,18 @@
-STUFF_EDIT {{stuffId}} <button ng-click="go('stuffs')"></button>
+<button ng-click="go('stuffs')">Back</button> {{originalStuff.name}}
+Name: <div contenteditable ng-model="stuff.name"></div>
+		<button ng-show="stuff.name!==originalStuff.name" ng-click="save()">Save</button>
+		<button ng-show="stuff.name!==originalStuff.name" ng-click="stuff.name=originalStuff.name">Cancel</button>
+
+Description: <div contenteditable ng-model="stuff.description"></div>
+<button ng-show="stuff.description!==originalStuff.description" ng-click="save()">Save</button>
+<button ng-show="stuff.description!==originalStuff.description" ng-click="stuff.description=originalStuff.description">Cancel</button>
+
+		Pictures
+		<input type="file" id="uploadPicture" onchange="angular.element(this).scope().upload()" style="display:none;">
+		<button ng-click="clickFileUpload()">Upload Picture</button>
+
+		<button ng-click="prevImage()" ng-show="stuff.images && stuff.images.length && currentImage!=0">Prev</button>
+		<div ng-repeat="file in stuff.images">
+			<img ng-show="currentImage==$index" style="height:50px;" ng-src="/rest/stuff/{{stuff.id}}/image/{{$index}}">
+			</div>
+<button ng-click="nextImage()" ng-show="stuff.images && stuff.images.length && currentImage!=stuff.images.length-1">Next</button>
