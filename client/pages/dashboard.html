@@ -3,9 +3,10 @@ Places
 
 <div ng-repeat="place in places">
 	{{place.name}}
-	<div ng-repeat="stuff in stuffForPlaces(place)">
+	<div ng-show="stuffForPlaces(place).length" ng-repeat="stuff in stuffForPlaces(place)">
 		{{stuff.name}}
 	</div>
+	<div ng-show="!stuffForPlaces(place).length">No stuffs here</div>
 </div>
 
 Stuffs

@@ -11,6 +11,8 @@ Description: <div contenteditable ng-model="stuff.description"></div>
 		<input type="file" id="uploadPicture" onchange="angular.element(this).scope().upload()" style="display:none;">
 		<button ng-click="clickFileUpload()">Upload Picture</button>
 
+		<div ng-show="!stuff.images.length">No images yet</div>
+
 		<button ng-click="prevImage()" ng-show="stuff.images && stuff.images.length && currentImage!=0">Prev</button>
 		<div ng-repeat="file in stuff.images">
 			<img ng-show="currentImage==$index" style="height:50px;" ng-src="/rest/stuff/{{stuff.id}}/image/{{$index}}">
