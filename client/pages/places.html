@@ -11,6 +11,7 @@
 
 <div ng-repeat="place in places">
 	<div ng-click="selectPlace(place.id)">{{place.name}}</div>
+	<button ng-click="go('/history_place',{'placeId':place.id})">History</button>
 	<div ng-show="place.id === selectedPlaceId">
 		<form name="form" novalidate>
 			Name:<input type="text" ng-model="getEditPlace(place).name" required>

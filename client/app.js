@@ -6,9 +6,13 @@ inventoryApp.config(function($routeProvider) {
             templateUrl : 'pages/dashboard.html',
             controller  : 'DashboardCtrl'
         })
-        .when('/history', {
-            templateUrl : 'pages/history.html',
-            controller  : 'HistoryCtrl'
+        .when('/history_place', {
+            templateUrl : 'pages/history_place.html',
+            controller  : 'HistoryPlaceCtrl'
+        })
+        .when('/history_stuff', {
+            templateUrl : 'pages/history_stuff.html',
+            controller  : 'HistoryStuffCtrl'
         })
         .when('/places', {
             templateUrl : 'pages/places.html',

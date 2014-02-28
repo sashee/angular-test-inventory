@@ -2,6 +2,7 @@
 <div>
 	<div ng-repeat="stuff in stuffs">
 		{{stuff.name}}
+		<button ng-click="go('/history_stuff',{'stuffId':stuff.id})">History</button>
 		<button ng-click="go('/stuff_edit',{'stuffId':stuff.id})">Edit</button>
 		at:
 		<div ng-show="showEdit!==stuff.id" ng-click="$parent.showEdit=stuff.id">

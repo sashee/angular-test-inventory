@@ -11,6 +11,17 @@ app.use(express.urlencoded());
 var places;
 var stuffs;
 
+
+var files={};
+
+fs.readdir('testdata',function(e,f){
+    _.each(f,function(file){
+        fs.readFile('testdata/'+file,function(e,data){
+            files[file]=data;
+        });
+    })
+})
+
 app.use("/", express.static(__dirname + '/../client/'));
 
 function resetDb(){
@@ -75,6 +86,12 @@ app.get('/rest/stuff/:id', function(req, res){
     }));
 });
 
+app.get('/rest/place/:id', function(req, res){
+    res.send(_.find(places,function(place){
+        return place.id===req.params.id;
+    }));
+});
+
 app.get('/rest/stuff/for_place/:placeid', function(req, res){
     res.send(_.filter(stuffs,function(stuff){
         return stuff.at && stuff.at===req.params.placeid;
@@ -83,13 +100,13 @@ app.get('/rest/stuff/for_place/:placeid', function(req, res){
 
 app.post('/rest/stuff/new',function(req,res){
     req.body.history=[{date:new Date(),at:req.body.at}];
-    req.body.id= parseInt(_.max(_.pluck(stuffs,'id')))+1;
+    req.body.id= parseInt(_.max(_.pluck(stuffs,'id')))+1+"";
     stuffs= _.union(stuffs,[req.body]);
     res.send(200);
 });
 
 app.post('/rest/place/new',function(req,res){
-    req.body.id= parseInt(_.max(_.pluck(places,'id')))+1;
+    req.body.id= parseInt(_.max(_.pluck(places,'id')))+1+"";
     places= _.union(places,[req.body]);
     res.send(200);
 });
@@ -117,15 +134,19 @@ app.post('/rest/stuff/:stuffid/image',function(req,res){
     var existing=_.find(stuffs,function(stuff){return stuff.id===req.params.stuffid});
     var imgs=existing.images||[];
     imgs.push(req.files.img.path);
+
+    fs.readFile(req.files.img.path, "binary", function(error, file) {
+        files[req.files.img.path]=file;
+    });
+
     existing.images=imgs;
     res.send(200)
 });
 
 app.get('/rest/stuff/:stuffid/image/:imagenum',function(req,res){
     var existing=_.find(stuffs,function(stuff){return stuff.id===req.params.stuffid});
-    fs.readFile(existing.images[req.params.imagenum], "binary", function(error, file) {
-        res.writeHead(200, {"Content-Type": "image/png"});
-        res.write(file, "binary");
-})});
+    res.writeHead(200, {"Content-Type": "image/png"});
+    res.write(files[existing.images[req.params.imagenum]], "binary");
+});
 
 app.listen(3000);

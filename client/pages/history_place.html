@@ -1,0 +1,16 @@
+<button ng-click="go('/places')">Back</button>
+		{{place.name}} history
+<table>
+	<thead>
+	<tr>
+		<th>Date</th>
+		<th>Description</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="history in history() | orderBy:'-date'">
+		<td>{{history.date | date: 'medium'}}</td>
+		<td>{{formatAt(history)}}</td>
+	</tr>
+	</tbody>
+</table>
