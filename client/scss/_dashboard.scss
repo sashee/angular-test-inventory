@@ -1,0 +1,40 @@
+.mod-dashboard{
+  .heading{
+    margin-top:40px;
+    height:35px;
+    div{
+      float:left;
+      font-size: 130%;
+    }
+    a{
+      float:right;
+    }
+  }
+
+  .place-panel{
+    margin-left:20px;
+    .place{
+      margin-top:8px;
+      margin-bottom:8px;
+      border-bottom: 1px dotted lightgrey;
+      .stuff,.nostuff{
+        margin-left:20px;
+        margin-top:3px;
+      }
+
+      .nostuff{
+        font-style:italic;
+      }
+    }
+  }
+
+  .stuff-panel{
+    margin-left:20px;
+    .stuff{
+      margin-top:8px;
+      margin-bottom:8px;
+      border-bottom: 1px dotted lightgrey;
+    }
+  }
+
+}

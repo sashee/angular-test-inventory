@@ -1,0 +1,90 @@
+body {
+  margin: 0px;
+  font-size: 20px; }
+
+header {
+  background-color: lightGrey;
+  font-size: 150%;
+  height: 60px; }
+  header div {
+    width: 1090px;
+    margin: 0px auto;
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative; }
+
+.main {
+  width: 1090px;
+  margin: 0px auto;
+  padding-bottom: 90px; }
+  .main .page-title {
+    font-size: 140%;
+    text-decoration: underline;
+    margin-top: 40px;
+    font-weight: bold; }
+
+.container {
+  position: relative;
+  min-height: 100%; }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: darkGrey;
+  font-size: small;
+  height: 90px; }
+  footer > div {
+    width: 1090px;
+    margin: 0px auto;
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+    height: 16px; }
+    footer > div .text {
+      float: left; }
+    footer > div .copyright {
+      float: right; }
+
+.mod-dashboard .heading {
+  margin-top: 40px;
+  height: 35px; }
+  .mod-dashboard .heading div {
+    float: left;
+    font-size: 130%; }
+  .mod-dashboard .heading a {
+    float: right; }
+.mod-dashboard .place-panel {
+  margin-left: 20px; }
+  .mod-dashboard .place-panel .place {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px dotted lightgrey; }
+    .mod-dashboard .place-panel .place .stuff, .mod-dashboard .place-panel .place .nostuff {
+      margin-left: 20px;
+      margin-top: 3px; }
+    .mod-dashboard .place-panel .place .nostuff {
+      font-style: italic; }
+.mod-dashboard .stuff-panel {
+  margin-left: 20px; }
+  .mod-dashboard .stuff-panel .stuff {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px dotted lightgrey; }
+
+.button-standard {
+  cursor: pointer;
+  display: inline-block;
+  padding: 3px 6px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  transition: background-color 200ms linear;
+  text-transform: uppercase; }
+  .button-standard:hover {
+    background-color: lightGrey; }
+
+.autocomplete {
+  width: 100%; }

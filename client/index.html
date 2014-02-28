@@ -7,6 +7,7 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+
 	<script src="vendor/select2.js"></script>
 	<script src="app.js"></script>
 	<script src="controllers/dashboard.js"></script>
@@ -16,16 +17,23 @@
 	<script src="controllers/stuff_edit.js"></script>
 	<script src="controllers/stuffs.js"></script>
 	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.min.css">
-<style>
-	.autocomplete{
-		width:100%;
-	}
-</style>
+	<link rel="stylesheet" type="text/css" href="scss/app.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 </head>
 <body>
-<div ng-view>
-</div>
-
-
+	<div class="container">
+		<header><div>Angular Inventory</div></header>
+		<div class="main">
+			<div class="page-title">Dashboard</div>
+				<div ng-view>
+			</div>
+		</div>
+		<footer>
+			<div>
+				<div class="text">This is a test project. It is not intended to be useful in any way other than demonstrating designing and coding skills</div>
+				<div class="copyright">© Tamás Sallai</div>
+			</div>
+		</footer>
+	</div>
 </body>
 </html>
