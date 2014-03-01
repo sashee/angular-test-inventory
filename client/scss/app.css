@@ -104,45 +104,55 @@ footer {
   .button-standard:hover {
     background-color: lightGrey; }
 
-.mod-places .mod-place-create {
+.mod-places .mod-place-editor {
   border: 1px dotted lightgrey; }
-  .mod-places .mod-place-create .place-create-header {
+  .mod-places .mod-place-editor .place-editor-header {
+    display: flex;
     width: 100%;
-    cursor: pointer; }
-    .mod-places .mod-place-create .place-create-header span {
-      line-height: 40px; }
-      .mod-places .mod-place-create .place-create-header span.text {
-        margin-left: 10px; }
-    .mod-places .mod-place-create .place-create-header [class^="icon-"] {
-      float: right;
+    height: 50px;
+    align-items: center;
+    cursor: pointer;
+    user-select: none; }
+    .mod-places .mod-place-editor .place-editor-header span:nth-child(1) {
+      margin-left: 10px; }
+    .mod-places .mod-place-editor .place-editor-header span.text {
+      flex-grow: 1; }
+    .mod-places .mod-place-editor .place-editor-header [class^="icon-"] {
       margin-right: 5px; }
-  .mod-places .mod-place-create .place-create {
+    .mod-places .mod-place-editor .place-editor-header a {
+      margin-right: 20px; }
+  .mod-places .mod-place-editor .place-editor {
     border-top: 1px dotted lightgrey;
     overflow: hidden; }
-    .mod-places .mod-place-create .place-create.ng-hide-add, .mod-places .mod-place-create .place-create.ng-hide-remove {
+    .mod-places .mod-place-editor .place-editor.ng-hide-add, .mod-places .mod-place-editor .place-editor.ng-hide-remove {
       transition: all linear 0.2s;
       display: block !important; }
-    .mod-places .mod-place-create .place-create.ng-hide-add.ng-hide-add-active, .mod-places .mod-place-create .place-create.ng-hide-remove {
+    .mod-places .mod-place-editor .place-editor.ng-hide-add.ng-hide-add-active, .mod-places .mod-place-editor .place-editor.ng-hide-remove {
       height: 0px; }
-    .mod-places .mod-place-create .place-create.ng-hide-add, .mod-places .mod-place-create .place-create.ng-hide-remove.ng-hide-remove-active {
+    .mod-places .mod-place-editor .place-editor.ng-hide-add, .mod-places .mod-place-editor .place-editor.ng-hide-remove.ng-hide-remove-active {
       height: 114px; }
-    .mod-places .mod-place-create .place-create form {
+    .mod-places .mod-place-editor .place-editor form {
       margin-bottom: 0px; }
-      .mod-places .mod-place-create .place-create form .buttons {
+      .mod-places .mod-place-editor .place-editor form .buttons {
         display: flex;
         justify-content: flex-end;
         margin-top: 10px; }
-        .mod-places .mod-place-create .place-create form .buttons a {
+        .mod-places .mod-place-editor .place-editor form .buttons a {
           margin-left: 10px; }
-    .mod-places .mod-place-create .place-create .form-element {
+    .mod-places .mod-place-editor .place-editor .form-element {
       margin-top: 10px;
       margin-bottom: 5px;
       margin-left: 10px;
       margin-right: 5px;
       display: flex;
       justify-content: space-between; }
-      .mod-places .mod-place-create .place-create .form-element input {
+      .mod-places .mod-place-editor .place-editor .form-element input {
         width: 87%; }
+.mod-places .place-creator {
+  margin-bottom: 20px;
+  border: 1px dotted black; }
+  .mod-places .place-creator .place-editor-header .text {
+    font-style: italic; }
 
 .autocomplete {
   width: 100%; }
