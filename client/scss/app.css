@@ -162,7 +162,8 @@ footer {
   border: 1px dotted lightgrey;
   display: flex;
   min-height: 50px;
-  align-items: center; }
+  align-items: center;
+  padding: 5px; }
   .mod-stuffs .stuff-editor [class^="icon-"] {
     margin-right: 5px;
     font-size: 90%;
