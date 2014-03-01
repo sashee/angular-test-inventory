@@ -1,35 +1,36 @@
-<button ng-click="go('/')">Back</button>
-<div>
-	<div ng-repeat="stuff in stuffs">
-		{{stuff.name}}
-		<button ng-click="go('/history_stuff',{'stuffId':stuff.id})">History</button>
-		<button ng-click="go('/stuff_edit',{'stuffId':stuff.id})">Edit</button>
-		at:
-		<div ng-show="showEdit!==stuff.id" ng-click="$parent.showEdit=stuff.id">
-			<div ng-show="findPlaceById(stuff.at)">
-				{{findPlaceById(stuff.at).name}}
-			</div>
-			<div ng-show="!findPlaceById(stuff.at)">
-				Nowhere
-			</div>
+<div class="page-title"><span ng-click="go('/')" class="icon-arrow-left8 back"></span><span class="text">Stuffs</span></div>
 
+<div class="mod-stuffs">
+	<div class="stuff-editor" ng-repeat="stuff in stuffs">
+		<span class="icon-newspaper"></span>
+		<div class="name-text">{{stuff.name}}</div>
+		<a class="button-standard" ng-click="go('/history_stuff',{'stuffId':stuff.id})">History</a>
+		<a class="button-standard" ng-click="go('/stuff_edit',{'stuffId':stuff.id})">Edit</a>
+		<span class="text">at:</span>
+		<div class="place" ng-show="showEdit!==stuff.id" ng-click="$parent.showEdit=stuff.id">
+			<span ng-show="findPlaceById(stuff.at)">
+				{{findPlaceById(stuff.at).name}}
+			</span>
+			<span ng-show="!findPlaceById(stuff.at)">
+				Nowhere
+			</span>
 		</div>
-		<div ng-show="showEdit==stuff.id">
+		<div class="place-selector" ng-show="showEdit==stuff.id">
 			<select ui-select2="{allowClear:true}" ng-model="findEditStuff(stuff.id).at" data-placeholder="At nowhere" class="autocomplete">
 				<option value=""></option>
 				<option ng-repeat="p in places" value="{{p.id}}">{{p.name}}</option>
 			</select>
-			<button ng-click="save(stuff.id)">OK</button>
-			<button ng-click="$parent.showEdit=null">Cancel</button>
+			<a class="button-standard" ng-click="save(stuff.id)">OK</a>
+			<a class="button-standard" ng-click="$parent.showEdit=null">Cancel</a>
 		</div>
 	</div>
-	<div>
-		<button ng-show="!showCreate" ng-click="showCreate=true">New</button>
-		<div ng-show="showCreate">
+	<div class="stuff-creator">
+		<a class="button-standard" ng-show="!showCreate" ng-click="showCreate=true">New</a>
+		<div class="stuff-creator-panel" ng-show="showCreate">
 			<form name="form" novalidate>
 				<input type="text" ng-model="name" required>
-				<button ng-disabled="form.$invalid" ng-click="create()">Save</button>
-				<button ng-click="showCreate=false;name=null">Cancel</button>
+				<a class="button-standard" ng-disabled="form.$invalid" ng-click="!form.$invalid && create()">Save</a>
+				<a class="button-standard" ng-click="showCreate=false;name=null">Cancel</a>
 			</form>
 		</div>
 	</div>

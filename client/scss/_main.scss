@@ -1,4 +1,5 @@
 $footer-height:90px;
+$footer-padding:20px;
 
 body{
   margin:0px;
@@ -21,7 +22,7 @@ header{
 .main{
   width:1090px;
   margin:0px auto;
-  padding-bottom:$footer-height;
+  padding-bottom:$footer-height+$footer-padding;
   .page-title{
     font-size:140%;
     margin-bottom: 40px;

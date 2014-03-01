@@ -1,0 +1,58 @@
+.mod-stuffs{
+  .stuff-editor{
+    border: 1px dotted lightgrey;
+    display:flex;
+    min-height: 50px;
+    align-items: center;
+    [class^="icon-"]{
+      margin-right:5px;
+      font-size:90%;
+      margin-left:10px;
+    }
+    .name-text{
+      width:330px;
+    }
+    a{
+      margin-right:20px;
+    }
+    .place-selector{
+      flex-grow:1;
+      flex-shrink:1;
+      display:flex;
+      align-items: center;
+      >*{
+        flex-shrink:0;
+      }
+      .autocomplete{
+        flex-grow:1;
+        flex-shrink:1;
+      }
+    }
+
+    >*{
+      flex-shrink:0;
+    }
+
+    .place{
+      flex-shrink:1;
+      flex-grow: 1;
+    }
+  }
+
+  .stuff-creator{
+    margin-top:20px;
+    .stuff-creator-panel{
+      form{
+        margin-bottom:0px;
+        display:flex;
+        input{
+          flex-grow:1;
+          margin-right:20px;
+        }
+        a{
+          margin-right:20px;
+        }
+      }
+    }
+  }
+}

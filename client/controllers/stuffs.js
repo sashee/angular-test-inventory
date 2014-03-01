@@ -35,6 +35,7 @@ inventoryApp.controller('StuffsCtrl', function StuffsCtrl($scope,$http) {
         $http.post('/rest/stuff/new',{name:$scope.name}).success(function(){
             refreshStuffs();
             $scope.showCreate=false;
+            $scope.name=null;
         });
     }
 });
