@@ -1,20 +1,56 @@
-<button ng-click="go('stuffs')">Back</button> {{originalStuff.name}}
-Name: <div contenteditable ng-model="stuff.name"></div>
-		<button ng-show="stuff.name!==originalStuff.name" ng-click="save()">Save</button>
-		<button ng-show="stuff.name!==originalStuff.name" ng-click="stuff.name=originalStuff.name">Cancel</button>
+<div class="page-title"><span ng-click="go('/stuffs')" class="icon-arrow-left8 back"></span><span class="text">{{originalStuff.name}}</span></div>
+<div class="mod-stuff-edit">
 
-Description: <div contenteditable ng-model="stuff.description"></div>
-<button ng-show="stuff.description!==originalStuff.description" ng-click="save()">Save</button>
-<button ng-show="stuff.description!==originalStuff.description" ng-click="stuff.description=originalStuff.description">Cancel</button>
-
-		Pictures
-		<input type="file" id="uploadPicture" onchange="angular.element(this).scope().upload()" style="display:none;">
-		<button ng-click="clickFileUpload()">Upload Picture</button>
-
-		<div ng-show="!stuff.images.length">No images yet</div>
-
-		<button ng-click="prevImage()" ng-show="stuff.images && stuff.images.length && currentImage!=0">Prev</button>
-		<div ng-repeat="file in stuff.images">
-			<img ng-show="currentImage==$index" style="height:50px;" ng-src="/rest/stuff/{{stuff.id}}/image/{{$index}}">
+	<div class="basic">
+		<div class="header">
+			<div class="text">
+				<span class="icon-file"/>
+				<span>Basic info</span>
 			</div>
-<button ng-click="nextImage()" ng-show="stuff.images && stuff.images.length && currentImage!=stuff.images.length-1">Next</button>
+		</div>
+
+		<div class="form-field">
+			<div class="text">Name:&nbsp;</div>
+			<div class="content">
+				<div class="value" contenteditable ng-model="stuff.name"/>
+				<a class="button-standard" ng-class="{hidden: stuff.name===originalStuff.name}" ng-click="save()">Save</a>
+				<a class="button-standard" ng-class="{hidden: stuff.name===originalStuff.name}" ng-click="stuff.name=originalStuff.name">Cancel</a>
+			</div>
+		</div>
+
+		<div class="form-field">
+			<div class="text">Description:&nbsp;</div>
+			<div class="content">
+				<div class="value" contenteditable ng-model="stuff.description"/>
+				<a class="button-standard" ng-class="{hidden: stuff.description===originalStuff.description}" ng-click="save()">Save</a>
+				<a class="button-standard" ng-class="{hidden: stuff.description===originalStuff.description}" ng-click="stuff.description=originalStuff.description">Cancel</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="pictures">
+		<div class="header">
+			<div class="text">
+				<span class="icon-images"/>
+				<span>Pictures</span>
+			</div>
+
+			<input type="file" id="uploadPicture" onchange="angular.element(this).scope().upload()" style="display:none;">
+			<a class="button-standard upload-picture" ng-click="clickFileUpload()">Upload Picture</a>
+		</div>
+
+		<div class="no-pictures-text" ng-show="!stuff.images.length">No images yet</div>
+
+		<div class="pictures-carousel">
+			<a class="button-standard" ng-click="prevImage()" ng-class="{hidden:!(stuff.images && stuff.images.length && currentImage!=0)}">
+				<span class="icon-arrow-left10"></span>
+			</a>
+			<ul rn-carousel rn-carousel-swipe="false" rn-carousel-index="currentImage" class="carousel">
+				<li ng-repeat="file in stuff.images"  style="background-image:url(/rest/stuff/{{stuff.id}}/image/{{$index}})"></li>
+			</ul>
+			<a class="button-standard" ng-click="nextImage()" ng-class="{hidden:!(stuff.images && stuff.images.length && currentImage!=stuff.images.length-1)}">
+				<span class="icon-uniE90B"></span>
+			</a>
+		</div>
+	</div>
+</div>

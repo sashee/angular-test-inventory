@@ -1,0 +1,84 @@
+.mod-stuff-edit{
+  .header{
+    display:flex;
+    margin-bottom: 10px;
+    .text{
+      [class^="icon-"]{
+        font-size:90%;
+      }
+      >*{
+        font-size:130%;
+      }
+      flex-grow:1;
+    }
+    a{
+      margin-right:20px;
+    }
+  }
+
+  .form-field{
+    display:flex;
+    min-height:50px;
+    align-items: center;
+    >*{
+      flex-shrink:0;
+    }
+    .content{
+      flex-grow:1;
+      flex-shrink:1;
+      border-bottom: 1px dashed #999;
+      display:flex;
+      align-items: center;
+      .value{
+        flex-grow:1;
+        flex-shrink:1;
+        outline: none;
+      }
+      >*{
+        flex-grow:0;
+        flex-shrink:0;
+      }
+    }
+    a{
+      margin-right:20px;
+    }
+  }
+
+  .pictures{
+    margin-top:30px;
+    .no-pictures-text{
+      font-style: italic;
+    }
+
+    .pictures-carousel{
+      display:flex;
+      align-items: center;
+      margin-bottom: 30px;
+      margin-top: 50px;
+      .carousel{
+        li{
+          max-height:500px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+      >*{
+        flex-shrink:0;
+      }
+      >a{
+        margin-left:20px;
+        margin-right:20px;
+        padding-left:10px;
+        padding-right:10px;
+        padding-top:20px;
+        padding-bottom:20px;
+      }
+
+      .rn-carousel-container{
+        width:auto!important;
+        flex-grow:1;
+      }
+    }
+  }
+}

@@ -104,6 +104,9 @@ footer {
   .button-standard:hover {
     background-color: lightGrey; }
 
+.hidden {
+  visibility: hidden; }
+
 .mod-places .mod-place-editor {
   border: 1px dotted lightgrey; }
   .mod-places .mod-place-editor .place-editor-header {
@@ -197,3 +200,62 @@ footer {
       margin-right: 20px; }
     .mod-stuffs .stuff-creator .stuff-creator-panel form a {
       margin-right: 20px; }
+
+.mod-stuff-edit .header {
+  display: flex;
+  margin-bottom: 10px; }
+  .mod-stuff-edit .header .text {
+    flex-grow: 1; }
+    .mod-stuff-edit .header .text [class^="icon-"] {
+      font-size: 90%; }
+    .mod-stuff-edit .header .text > * {
+      font-size: 130%; }
+  .mod-stuff-edit .header a {
+    margin-right: 20px; }
+.mod-stuff-edit .form-field {
+  display: flex;
+  min-height: 50px;
+  align-items: center; }
+  .mod-stuff-edit .form-field > * {
+    flex-shrink: 0; }
+  .mod-stuff-edit .form-field .content {
+    flex-grow: 1;
+    flex-shrink: 1;
+    border-bottom: 1px dashed #999;
+    display: flex;
+    align-items: center; }
+    .mod-stuff-edit .form-field .content .value {
+      flex-grow: 1;
+      flex-shrink: 1;
+      outline: none; }
+    .mod-stuff-edit .form-field .content > * {
+      flex-grow: 0;
+      flex-shrink: 0; }
+  .mod-stuff-edit .form-field a {
+    margin-right: 20px; }
+.mod-stuff-edit .pictures {
+  margin-top: 30px; }
+  .mod-stuff-edit .pictures .no-pictures-text {
+    font-style: italic; }
+  .mod-stuff-edit .pictures .pictures-carousel {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-top: 50px; }
+    .mod-stuff-edit .pictures .pictures-carousel .carousel li {
+      max-height: 500px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center; }
+    .mod-stuff-edit .pictures .pictures-carousel > * {
+      flex-shrink: 0; }
+    .mod-stuff-edit .pictures .pictures-carousel > a {
+      margin-left: 20px;
+      margin-right: 20px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 20px;
+      padding-bottom: 20px; }
+    .mod-stuff-edit .pictures .pictures-carousel .rn-carousel-container {
+      width: auto !important;
+      flex-grow: 1; }
