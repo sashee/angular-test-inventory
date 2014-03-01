@@ -34,6 +34,8 @@ inventoryApp.controller('PlacesCtrl', function PlacesCtrl($scope,$http) {
             refreshPlaces();
             $scope.selectedPlaceId=null;
             $scope.showCreate=false;
+            $scope.name='';
+            $scope.description='';
         });
     }
 

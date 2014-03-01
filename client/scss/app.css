@@ -19,9 +19,14 @@ header {
   padding-bottom: 90px; }
   .main .page-title {
     font-size: 140%;
-    text-decoration: underline;
+    margin-bottom: 40px;
     margin-top: 40px;
     font-weight: bold; }
+    .main .page-title .back {
+      cursor: pointer;
+      font-size: 90%; }
+    .main .page-title .text {
+      text-decoration: underline; }
 
 .container {
   position: relative;
@@ -50,18 +55,23 @@ footer {
   margin-top: 40px;
   height: 35px; }
   .mod-dashboard .heading div {
-    float: left;
-    font-size: 130%; }
+    float: left; }
+    .mod-dashboard .heading div [class^="icon-"] {
+      font-size: 90%; }
+    .mod-dashboard .heading div .text {
+      font-size: 130%; }
   .mod-dashboard .heading a {
     float: right; }
 .mod-dashboard .place-panel {
   margin-left: 20px; }
+  .mod-dashboard .place-panel [class^="icon-"] {
+    font-size: 90%; }
   .mod-dashboard .place-panel .place {
     margin-top: 8px;
     margin-bottom: 8px;
     border-bottom: 1px dotted lightgrey; }
     .mod-dashboard .place-panel .place .stuff, .mod-dashboard .place-panel .place .nostuff {
-      margin-left: 20px;
+      margin-left: 30px;
       margin-top: 3px; }
     .mod-dashboard .place-panel .place .nostuff {
       font-style: italic; }
@@ -71,6 +81,8 @@ footer {
     margin-top: 8px;
     margin-bottom: 8px;
     border-bottom: 1px dotted lightgrey; }
+    .mod-dashboard .stuff-panel .stuff [class^="icon-"] {
+      font-size: 90%; }
 
 .button-standard {
   cursor: pointer;
@@ -83,8 +95,54 @@ footer {
   background-color: white;
   transition: background-color 200ms linear;
   text-transform: uppercase; }
+  .button-standard[disabled="disabled"] {
+    color: lightgrey;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    cursor: default; }
+  .button-standard[disabled="disabled"]:hover {
+    background-color: white; }
   .button-standard:hover {
     background-color: lightGrey; }
+
+.mod-places .mod-place-create {
+  border: 1px dotted lightgrey; }
+  .mod-places .mod-place-create .place-create-header {
+    width: 100%;
+    cursor: pointer; }
+    .mod-places .mod-place-create .place-create-header span {
+      line-height: 40px; }
+      .mod-places .mod-place-create .place-create-header span.text {
+        margin-left: 10px; }
+    .mod-places .mod-place-create .place-create-header [class^="icon-"] {
+      float: right;
+      margin-right: 5px; }
+  .mod-places .mod-place-create .place-create {
+    border-top: 1px dotted lightgrey;
+    overflow: hidden; }
+    .mod-places .mod-place-create .place-create.ng-hide-add, .mod-places .mod-place-create .place-create.ng-hide-remove {
+      transition: all linear 0.2s;
+      display: block !important; }
+    .mod-places .mod-place-create .place-create.ng-hide-add.ng-hide-add-active, .mod-places .mod-place-create .place-create.ng-hide-remove {
+      height: 0px; }
+    .mod-places .mod-place-create .place-create.ng-hide-add, .mod-places .mod-place-create .place-create.ng-hide-remove.ng-hide-remove-active {
+      height: 114px; }
+    .mod-places .mod-place-create .place-create form {
+      margin-bottom: 0px; }
+      .mod-places .mod-place-create .place-create form .buttons {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px; }
+        .mod-places .mod-place-create .place-create form .buttons a {
+          margin-left: 10px; }
+    .mod-places .mod-place-create .place-create .form-element {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      margin-left: 10px;
+      margin-right: 5px;
+      display: flex;
+      justify-content: space-between; }
+      .mod-places .mod-place-create .place-create .form-element input {
+        width: 87%; }
 
 .autocomplete {
   width: 100%; }

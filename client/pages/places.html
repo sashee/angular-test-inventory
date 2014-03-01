@@ -1,22 +1,55 @@
-<button ng-click="go('/')">Back</button>
-<div ng-click="showCreate=true;selectPlace(null)">NEW</div>
-<div ng-show="showCreate">
-	<form name="form" novalidate>
-		Name:<input type="text" ng-model="name" required>
-		Description:<input type="text" ng-model="description" required>
-		<button ng-click="create()" ng-disabled="form.$invalid">SAVE</button>
-		<button ng-click="name='';description='';showCreate=false">CANCEL</button>
-	</form>
-</div>
+<div class="page-title"><span ng-click="go('/')" class="icon-arrow-left8 back"></span><span class="text">Places</span></div>
 
-<div ng-repeat="place in places">
-	<div ng-click="selectPlace(place.id)">{{place.name}}</div>
-	<button ng-click="go('/history_place',{'placeId':place.id})">History</button>
-	<div ng-show="place.id === selectedPlaceId">
-		<form name="form" novalidate>
-			Name:<input type="text" ng-model="getEditPlace(place).name" required>
-			Description:<input type="text" ng-model="getEditPlace(place).description" required>
-			<button ng-click="savePlace(getEditPlace(place))" ng-disabled="form.$invalid || isUnchanged(place)">SAVE</button>
-		</form>
+<div class="mod-places">
+
+	<div class="mod-place-create">
+		<div class="place-create-header" ng-click="showCreate=!showCreate">
+			<span class="text">NEW</span>
+			<span ng-show="!showCreate" class="icon-plus3"></span>
+			<span ng-show="showCreate" class="icon-minus3"></span>
+		</div>
+		<div class="place-create" ng-show="showCreate">
+			<form name="form" novalidate>
+				<div class="form-element">
+					<label>Name:</label>
+					<input type="text" ng-model="name" required>
+				</div>
+				<div class="form-element">
+					<label>Description:</label>
+					<input type="text" ng-model="description" required>
+				</div>
+				<div class="buttons">
+					<a class="button-standard" ng-click="!form.$invalid && create()" ng-disabled="form.$invalid">Create</a>
+					<a class="button-standard" ng-click="name='';description='';showCreate=false">Cancel</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="mod-place-create">
+		<div class="mod-place-create" ng-repeat="place in places">
+			<div class="place-create-header" ng-click="selectPlace(place.id)">
+				<span class="icon-drawer2"></span>
+				<span class="text">{{place.name}}</span>
+				<a class="button-standard" ng-click="go('/history_place',{'placeId':place.id})">History</a>
+				<span ng-show="place.id !== selectedPlaceId" class="icon-arrow-down9"></span>
+				<span ng-show="place.id === selectedPlaceId" class="icon-arrow-up8"></span>
+			</div>
+			<div class="place-create" ng-show="place.id === selectedPlaceId">
+				<form name="form" novalidate>
+					<div class="form-element">
+						<label>Name:</label>
+						<input type="text" ng-model="getEditPlace(place).name" required>
+					</div>
+					<div class="form-element">
+						<label>Description:</label>
+						<input type="text" ng-model="getEditPlace(place).description" required>
+					</div>
+					<div class="buttons">
+						<a class="button-standard" ng-click="!(form.$invalid || isUnchanged(place)) && savePlace(getEditPlace(place))" ng-disabled="form.$invalid || isUnchanged(place)">SAVE</a>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 </div>

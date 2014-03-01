@@ -26,7 +26,14 @@ header{
   padding-bottom:$footer-height;
   .page-title{
     font-size:140%;
-    text-decoration: underline;
+    margin-bottom: 40px;
+    .back{
+      cursor:pointer;
+      font-size:90%;
+    }
+    .text{
+      text-decoration: underline;
+    }
     margin-top:40px;
     font-weight:bold;
   }

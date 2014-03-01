@@ -1,4 +1,4 @@
-var inventoryApp = angular.module('inventoryApp', ['ngRoute','ui.select2']);
+var inventoryApp = angular.module('inventoryApp', ['ngRoute','ui.select2','ngAnimate']);
 
 inventoryApp.config(function($routeProvider) {
     $routeProvider

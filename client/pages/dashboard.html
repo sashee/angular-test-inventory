@@ -1,7 +1,9 @@
+<div class="page-title"><span class="text">Dashboard</span></div>
 <div class="mod-dashboard">
 	<div class="heading">
 		<div>
-			Places
+			<span class="icon-list2"></span>
+			<span class="text">Places</span>
 		</div>
 		<a class="button-standard" ng-click="go('places')">Organize</a>
 	</div>
@@ -9,9 +11,11 @@
 	<div class="place-panel">
 		<div class="place" ng-repeat="place in places">
 			<div class="name">
+				<span class="icon-drawer2"></span>
 				{{place.name}}
 			</div>
 			<div class="stuff" ng-show="stuffForPlaces(place).length" ng-repeat="stuff in stuffForPlaces(place)">
+				<span class="icon-newspaper"></span>
 				{{stuff.name}}
 			</div>
 			<div class="nostuff" ng-show="!stuffForPlaces(place).length">No stuffs here</div>
@@ -20,7 +24,8 @@
 
 	<div class="heading">
 		<div>
-			Stuffs
+			<span class="icon-list2"></span>
+			<span class="text">Stuffs</span>
 		</div>
 		<a class="button-standard" ng-click="go('stuffs')">Organize</a>
 	</div>
@@ -28,6 +33,7 @@
 
 	<div class="stuff-panel">
 		<div class="stuff" ng-repeat="stuff in stuffs">
+			<span class="icon-newspaper"></span>
 			{{stuff.name}}
 		</div>
 	</div>
