@@ -45,7 +45,7 @@
 			<a class="button-standard" ng-click="prevImage()" ng-class="{hidden:!(stuff.images && stuff.images.length && currentImage!=0)}">
 				<span class="icon-arrow-left10"></span>
 			</a>
-			<ul rn-carousel rn-carousel-swipe="false" rn-carousel-index="currentImage" class="carousel">
+			<ul rn-carousel rn-carousel-swipe="true" rn-carousel-index="currentImage" class="carousel">
 				<li ng-repeat="file in stuff.images"  style="background-image:url(/rest/stuff/{{stuff.id}}/image/{{$index}})"></li>
 			</ul>
 			<a class="button-standard" ng-click="nextImage()" ng-class="{hidden:!(stuff.images && stuff.images.length && currentImage!=stuff.images.length-1)}">

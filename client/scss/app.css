@@ -259,3 +259,20 @@ footer {
     .mod-stuff-edit .pictures .pictures-carousel .rn-carousel-container {
       width: auto !important;
       flex-grow: 1; }
+
+.mod-history table {
+  width: 100%;
+  margin-left: 20px;
+  margin-right: 20px; }
+  .mod-history table thead tr {
+    height: 40px;
+    vertical-align: top; }
+    .mod-history table thead tr th {
+      text-align: left;
+      font-size: 120%; }
+  .mod-history table tbody tr td {
+    border-bottom: 1px dotted lightgrey; }
+  .mod-history table tbody tr td:nth-child(2) [class^="icon-"] {
+    font-size: 90%; }
+.mod-history .no-history-text {
+  font-style: italic; }

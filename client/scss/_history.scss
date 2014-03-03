@@ -1,0 +1,33 @@
+.mod-history{
+  table{
+    width:100%;
+    margin-left:20px;
+    margin-right:20px;
+    thead{
+      tr{
+        height: 40px;
+        vertical-align: top;
+        th{
+          text-align:left;
+          font-size:120%;
+        }
+      }
+
+    }
+    tbody{
+      tr{
+        td{
+          border-bottom: 1px dotted lightgrey;
+        }
+        td:nth-child(2){
+          [class^="icon-"]{
+            font-size:90%;
+          }
+        }
+      }
+    }
+  }
+  .no-history-text{
+    font-style:italic;
+  }
+}

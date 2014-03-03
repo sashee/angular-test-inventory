@@ -1,18 +1,23 @@
-<button ng-click="go('/places')">Back</button>
-		{{place.name}} history
-<table ng-show="history().length">
-	<thead>
-	<tr>
-		<th>Date</th>
-		<th>Description</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr ng-repeat="history in history() | orderBy:'-date'">
-		<td>{{history.date | date: 'medium'}}</td>
-		<td>{{formatAt(history)}}</td>
-	</tr>
-	</tbody>
-</table>
+<div class="page-title"><span ng-click="go('/places')" class="icon-arrow-left8 back"></span><span class="text">{{place.name}} history</span></div>
 
-<div ng-show="!history().length">No history till date</div>
+<div class="mod-history">
+	<table ng-show="history().length">
+		<thead>
+		<tr>
+			<th>Date</th>
+			<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="history in history() | orderBy:'-date'">
+			<td>{{history.date | date: 'mediumDate'}} {{history.date | date: 'shortTime'}}</td>
+			<td>
+				<span ng-class="{'icon-arrow-down-right3':history.at===placeId, 'icon-arrow-up-right3':history.at!==placeId}"/>
+				<span class="text">{{history.at===placeId?history.stuff+' moved here':history.stuff+' moved away'}}</span>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+
+	<div class="no-history-text" ng-show="!history().length">No history till date</div>
+</div>

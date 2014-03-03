@@ -28,8 +28,4 @@ inventoryApp.controller('HistoryPlaceCtrl', function HistoryPlaceCtrl($scope,$ro
                 },{list:[],next:false}).list
         }))
     }
-
-    $scope.formatAt=function(history){
-        return history.at===$scope.placeId?history.stuff+' moved here':history.stuff+' moved away';
-    }
 });
