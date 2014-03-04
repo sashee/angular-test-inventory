@@ -121,18 +121,6 @@ var googleSteps = function () {
         });
     });
 
-    this.When(/^I click on the Create button$/, function(callback) {
-        browser.findElements(protractor.By.xpath("//*[contains(text(),'Create')]")).then(function(res){
-            res[0].click().then(callback);
-        });
-    });
-
-    this.When(/^I click on the Cancel button$/, function(callback) {
-        browser.findElements(protractor.By.xpath("//*[contains(text(),'Cancel')]")).then(function(res){
-            res[0].click().then(callback);
-        });
-    });
-
     this.Then(/^I should see "([^"]*)" as the name$/, function(arg1, callback) {
         browser.findElements(protractor.By.xpath("//*[contains(concat(' ',@class,' '),' place-editor ') and not(contains(@class,'ng-hide'))]//label[contains(text(),'Name')]/../input")).then(function(res){
             expect(res[0].getAttribute('value')).to.eventually.equal(arg1).and.notify(callback);
@@ -141,12 +129,6 @@ var googleSteps = function () {
 
     this.When(/^I click on the "([^"]*)" place header$/, function(arg1, callback) {
         browser.findElements(protractor.By.xpath("//*[contains(@class,'place-editor-header')]//*[contains(@class,'text') and text()='"+arg1+"']/..")).then(function(res){
-            res[0].click().then(callback);
-        });
-    });
-
-    this.When(/^I click on the Save button$/, function(callback) {
-        browser.findElements(protractor.By.xpath("//*[contains(text(),'SAVE') and not(@disabled)]")).then(function(res){
             res[0].click().then(callback);
         });
     });

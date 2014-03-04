@@ -24,11 +24,11 @@ Feature: Handling places
     When I click on the add place header
       And I write "newplace1" as the name
       And I write "newplace1 description" as the description
-      And I click on the Create button
+      And I click on the "CREATE" button
     Then I should see the "newplace1" place
     When I click on the add place header
       And I write "newplace2" as the name
-      And I click on the Cancel button
+      And I click on the "CANCEL" button
       And I click on the add place header
     Then I should see "" as the name
     When I write "newplace3" as the name
@@ -41,12 +41,12 @@ Feature: Handling places
     When I click on the "Rebel base" place header
     Then I should see "Rebel base" as the name
     When I write "newplace5" as the name
-      And I click on the Save button
+      And I click on the "SAVE" button
     Then I should see the "newplace5" place
       And I shouldn't see the "Rebel base" place
     When I click on the "newplace5" place header
       And I write "newplace5 description" as the description
-      And I click on the Save button
+      And I click on the "SAVE" button
       And I click on the "newplace5" place header
     Then I should see "newplace5 description" as the description
 
