@@ -1,0 +1,16 @@
+{
+    "name": "angular-cucumber-example",
+    "version": "0.0.0",
+    "dependencies": {},
+    "devDependencies": {
+        "cucumber": "~0.3.1",
+        "protractor": "git+https://github.com/angular/protractor.git",
+        "selenium-webdriver": "~2.34.0",
+        "chai":"1.9.0",
+        "chai-as-promised":"4.1.1",
+        "request":"2.33.0"
+    },
+    "scripts": {
+        "postinstall": "./node_modules/protractor/bin/webdriver-manager update"
+    }
+}

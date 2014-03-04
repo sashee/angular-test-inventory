@@ -27,39 +27,56 @@ app.use("/", express.static(__dirname + '/../client/'));
 function resetDb(){
     places=[{
         id:'1',
-        name:'place1',
-        description:'a nice place'
+        name:'Rebel base',
+        description:'There is no place like'
     },{
         id:'2',
-        name:'place2',
-        description:'a not so nice place'
+        name:'X-wing 1',
+        description:'The one with some red paintings'
     },{
         id:'3',
-        name:'place3',
-        description:'a very nice place'
+        name:'Y-wing',
+        description:'The one with some yellow paintings'
+    },{
+        id:'4',
+        name:'Hideout',
+        description:'Shhh.. It is secret'
     }];
     stuffs=[{
         id:'1',
-        name:'stuff1',
-        description:'a useful stuff',
+        name:'Laser pistol',
+        description:'Useful in some situations',
         at:'2',
-        history:[{date:new Date('2014.01.11')},{date:new Date('2014.01.13'),at:"2"}]
+        history:[{date:new Date('2014.01.11')},{date:new Date('2014.01.13'),at:"2"},{date:new Date('2014.01.14'),at:"4"},{date:new Date('2014.01.15'),at:"2"}]
     },{
         id:'2',
-        name:'stuff2',
-        description:'a very useful stuff',
-        at:'2',
-        history:[{date:new Date('2014.01.10'),at:"2"}]
+        name:'Wookie food',
+        description:'They get angry if they don\'t get enough',
+        at:'4',
+        history:[{date:new Date('2014.01.10'),at:"1"},{date:new Date('2014.01.12'),at:"4"},{date:new Date('2014.01.15')},{date:new Date('2014.01.19'),at:"4"}]
     },{
         id:'3',
-        name:'stuff3',
-        description:'a not so useful stuff',
+        name:'Locator',
+        description:'Able to locate other stuffs. Really important to not lose it',
         at:'3',
-        history:[{date:new Date('2014.01.15')},{date:new Date('2014.01.16'),at:"3"},{date:new Date('2014.01.17')},{date:new Date('2014.01.18'),at:"3"}]
+        history:[{date:new Date('2014.01.15')},{date:new Date('2014.01.16'),at:"3"},{date:new Date('2014.01.17')},{date:new Date('2014.01.18'),at:"3"}],
+        images:['test-image-4.jpg']
     },{
         id:'4',
-        name:'stuff4',
-        description:'a mostly useful stuff',
+        name:'Secret papers about the Death Star',
+        description:'They don\'t really exist',
+        history:[{date:new Date('2014.02.12')}],
+        images:['test-image-1.gif','test-image-2.jpg','test-image-3.jpg']
+    },{
+        id:'5',
+        name:'Key for the X-wing',
+        description:'Note to self: Don\'t ever lock it inside the X-wing',
+        at:'4',
+        history:[{date:new Date('2014.01.12')},{date:new Date('2014.01.13'),at:"2"},{date:new Date('2014.01.16')},{date:new Date('2014.01.13'),at:"4"}]
+    },{
+        id:'6',
+        name:'The Force',
+        description:'It is everywhere',
         history:[{date:new Date('2014.02.12')}]
     }];
 }
