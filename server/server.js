@@ -14,7 +14,7 @@ var stuffs;
 
 var files={};
 
-fs.readdir('testdata',function(e,f){
+fs.readdir('testdata/',function(e,f){
     _.each(f,function(file){
         fs.readFile('testdata/'+file,function(e,data){
             files[file]=data;

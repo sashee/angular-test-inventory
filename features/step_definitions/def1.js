@@ -43,8 +43,8 @@ var googleSteps = function () {
         browser.get('http://localhost:3000').then(callback);
     });
 
-    this.Then(/^I should see "([^"]*)" in the place "([^"]*)"$/, function(arg1, arg2, callback) {
-        browser.findElements(protractor.By.xpath("//*[contains(@class,'place')]/*[contains(@class,'name') and contains(.,'"+arg2+"')]/../*[not(contains(@class,'ng-hide')) and not(contains(@class,'name')) and contains(.,'"+arg1+"')]")).then(function(res){
+    this.Then(/^I should see "([^"]*)" in the place "([^"]*)"$/, function(stuff, place, callback) {
+        browser.findElements(protractor.By.xpath("//*[contains(@class,'place')]/*[contains(@class,'name') and contains(text(),'"+place+"')]/../*[not(contains(@class,'ng-hide')) and not(contains(@class,'name')) and contains(text(),'"+stuff+"')]")).then(function(res){
             if(res.length){
                 callback();
             }else{

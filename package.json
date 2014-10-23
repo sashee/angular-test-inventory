@@ -1,14 +1,21 @@
 {
-    "name": "angular-cucumber-example",
+    "name": "angular-test-inventory",
     "version": "0.0.0",
     "dependencies": {},
     "devDependencies": {
-        "cucumber": "~0.3.1",
+        "cucumber": "0.4.4",
         "protractor": "git+https://github.com/angular/protractor.git",
-        "selenium-webdriver": "~2.34.0",
+        "selenium-webdriver": "2.43.5",
         "chai":"1.9.0",
         "chai-as-promised":"4.1.1",
-        "request":"2.33.0"
+        "request":"2.33.0",
+        "grunt": "0.4.5",
+        "grunt-nodemon":"0.1.2",
+        "express":"3.4.8",
+        "underscore":"1.6.0",
+        "grunt-protractor-webdriver":"0.1.9",
+        "grunt-cucumber":"0.2.3",
+        "grunt-run":"0.2.1"
     },
     "scripts": {
         "postinstall": "./node_modules/protractor/bin/webdriver-manager update"
